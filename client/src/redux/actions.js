@@ -1,39 +1,48 @@
 import axios from "axios"
+
+//------------------------CRUD------------------------
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES"
-export const GET_DETAILS = "GET_DETAILS"
-export const GET_GENRES = "GET_GENRES"
 export const POST_VIDEOGAME = "POST_VIDEOGAME"
-export const PAGINATE = "PAGINATE"
-export const CREATED_FILTER = "CREATED_FILTER"
-export const ORDER_FILTER = "ORDER_FILTER"
-export const RATING_FILTER = "RATING_FILTER"
-export const GENRES_FILTER = "GENRES_FILTER"
-export const SEARCH_FILTER = "SEARCH_FILTER"
-export const CLEAR_DETAIL = "CLEAR_DETAIL"
-export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME"
-export const NOT_RELOAD = "NOT_RELOAD"
 export const PATCH_VIDEOGAME = "PATCH_VIDEOGAME"
+export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME"
+//------------------------CRUD------------------------
+
+//------------------------DETAILS------------------------
+export const GET_DETAILS = "GET_DETAILS"
+export const CLEAR_DETAIL = "CLEAR_DETAIL"
+//------------------------DETAILS------------------------
+
+//------------------------FILTERS------------------------
 export const ALL_FILTERS = "ALL_FILTERS"
-
-
-
 export const ADD_FILTER = "ADD_FILTER"
 export const REMOVE_FILTER = "REMOVE_FILTER"
+export const SEARCH_FILTER = "SEARCH_FILTER"
+//------------------------FILTERS------------------------
 
+//------------------------USERS------------------------
 export const LOGIN = "LOGIN"
 export const LOG_OUT = "LOG_OUT"
 export const SIGN_UP = "SIGN_UP"
 export const NEW_PROFPIC = "NEW_PROFPIC"
+//------------------------USERS------------------------
 
+//------------------------USERS/FAVS------------------------
 export const GET_FAVS = "GET_FAVS"
 export const REMOVE_FAV = "REMOVE_FAV"
 export const ADD_FAV = "ADD_FAV"
 export const UPDATE_FAVS = "UPDATE_FAVS"
 export const CLEAR_FAVS = "CLEAR_FAVS"
+//------------------------USERS/FAVS------------------------
 
+//------------------------ERRORS------------------------
 export const ERRORS = "ERRORS"
 export const CLEAR_ERRORS = "CLEAR_ERRORS"
+//------------------------ERRORS------------------------
 
+//Extra:
+export const GET_GENRES = "GET_GENRES"
+export const PAGINATE = "PAGINATE"
+export const NOT_RELOAD = "NOT_RELOAD"
 
 //-----------------------------Gets-----------------------------
 export function getVideoGames(){
@@ -117,14 +126,6 @@ export function setNewErrors(obj){
         })
     }
 }
-
-/*  */
-
-/* const response = await axios.post(`http://localhost:3001/videogames`,input)
-                dispatch({
-                    type:POST_VIDEOGAME,
-                    payload: response.data
-                }) */
 
 //-----------------------------Paginate-----------------------------
 export function paginate(order){
