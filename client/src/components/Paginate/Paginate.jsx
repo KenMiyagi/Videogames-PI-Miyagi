@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {paginate} from "../../redux/actions"
+import React from 'react'
+import { paginate } from '../../redux/actions/filterPaginateActions';
 import { useDispatch } from 'react-redux';
 import style from "./Paginate.module.css"
 

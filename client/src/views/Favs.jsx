@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Card from "../components/Card/Card"
 import style from "../style/Favs.module.css"
-import {getFavs, clearFavs} from "../redux/actions"
+import {getFavs, /* clearFavs */} from "../redux/actions/userActions"
 
 const Favs = () => {
 
@@ -12,7 +12,7 @@ const Favs = () => {
 
   useEffect(()=>{
     dispatch(getFavs(userId))
-  },[])
+  },[dispatch, userId])
 
   return (
     <div className={style.allHome}>

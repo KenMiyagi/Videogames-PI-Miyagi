@@ -1,8 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut, login, clearFavs, clearErrors} from '../redux/actions';
-import { useNavigate, Link, NavLink} from 'react-router-dom';
+import { logOut, login, clearFavs} from "../redux/actions/userActions" 
+import {clearErrors} from "../redux/actions/errorActions"
+import {NavLink} from 'react-router-dom';
 import loginValidation from '../validation/loginValidation';
 import style from '../style/Login.module.css';
 
@@ -19,7 +20,7 @@ const Login = () => {
     dispatch(logOut())
    dispatch(clearFavs())
    dispatch(clearErrors())
-  },[])
+  },[dispatch])
 
 
   const handleChange=(event)=>{

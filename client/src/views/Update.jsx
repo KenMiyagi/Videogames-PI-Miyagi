@@ -2,7 +2,9 @@ import style from "../style/Update.module.css"
 import React, { useEffect, useState } from 'react'
 import {useNavigate, useParams} from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux"
-import {clearErrors, getDetails, getGenres, getVideoGames, setNewErrors, patchVideoGame} from "../redux/actions"
+import { getVideoGames, patchVideoGame, getGenres} from "../redux/actions/videoGameActions"
+import { setNewErrors, clearErrors} from '../redux/actions/errorActions'
+import { getDetails } from '../redux/actions/detailActions'
 import {formValidation} from "../validation/formValidation"
 
 const Update = () => {
@@ -32,7 +34,8 @@ const Update = () => {
     dispatch(getGenres())
     validateInput({...input, platforms: [...input.platforms, platformsDetail]})
     validateInput({...input, genres: [...input.platforms, genresDetail]})
-  },[dispatch])
+    return ()=>dispatch(clearErrors())
+  },[ dispatch, genresDetail, id, input, platformsDetail])
 
   const [errors, setErrors] = useState({a:""})
   

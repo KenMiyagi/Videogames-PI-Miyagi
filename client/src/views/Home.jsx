@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
-import {getVideoGames, notReloadAction, removeFilter,allFilters} from "../redux/actions"
+
+import { removeFilter,allFilters } from '../redux/actions/filterPaginateActions'
+import { getVideoGames, notReloadAction } from '../redux/actions/videoGameActions'
+
 import style from "../style/Home.module.css"
 import Card from "../components/Card/Card"
 import Paginate from "../components/Paginate/Paginate"
@@ -20,7 +23,7 @@ const Home = () => {
       dispatch(getVideoGames())
       dispatch(notReloadAction(true))
     }
-  },[])
+  },[dispatch, notReload])
 
   const reloadVG = ()=>{
     dispatch(getVideoGames())

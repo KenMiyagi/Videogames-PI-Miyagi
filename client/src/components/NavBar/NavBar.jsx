@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import {Link, useLocation, useParams} from "react-router-dom"
+import {Link, useLocation} from "react-router-dom"
 import style from "./NavBar.module.css"
 import img from "../../images/joystick_icon.png"
 import { useDispatch, useSelector } from 'react-redux'
-import {logOut, newProfPic} from "../../redux/actions"
+import {logOut, newProfPic} from "../../redux/actions/userActions"
 const NavBar = () => {
 
   const user = useSelector((state)=>state.user)
@@ -23,19 +23,19 @@ const NavBar = () => {
       setPic(newProfilePicture)
     }
   }
-
+  var title = ""
   if(pathname === "/home"){
-    var title = "Videojuegos"
+     title = "Videojuegos"
   }else if(pathname === "/form"){
-    var title = "Add a new Videogame!"
+     title = "Add a new Videogame!"
   }else if (pathname === "/about"){
-    var title = "About me!"
+     title = "About me!"
   }else if(pathname.includes("/update")){
-    var title = "Editing..."
+     title = "Editing..."
   }else if(pathname === "/favs"){
-    var title = "My favorites <3" 
+     title = "My favorites <3" 
   }else if( pathname.includes("details")){
-    var title = details.name
+     title = details.name
   }
 
   const logOutHandler = ()=>{

@@ -1,12 +1,4 @@
 
-/* Home.module.css */
-/* Estilos para el contenedor principal */
-/* .containerHome{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-} */
-
 .notLoaded{
   height: 600px;
 }
@@ -33,7 +25,7 @@
 .filtersRender{
   display: flex;
   height: 35px;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 32px;
 }
 
@@ -41,7 +33,6 @@
   display: flex;
   background-color: #0a0a1b;
   border-radius: 7px;
-  /* background-color: #2abdf7; */
   width: 429px;
   margin-right: 10px;
 }

@@ -222,31 +222,31 @@ function rootReducer(state= initialState, action){
                 ...state,
                 favs: action.payload
             }
-            case ADD_FAV:
-                let favArrAdd = state.user.favorites;
-                if (!favArrAdd.includes(action.payload)) {
-                    favArrAdd.push(action.payload);
-                }
-                return {
-                    ...state,
-                    user: { ...state.user, favorites: favArrAdd }
-                };
-            
-            case REMOVE_FAV:
-                const filteredFavs = state.user.favorites.filter(x => x !== action.payload);
-                return {
-                    ...state,
-                    user: { ...state.user, favorites: filteredFavs }
-                };
-            case UPDATE_FAVS:
-                return{
-                    ...state
-                }
-            case CLEAR_FAVS:
-                return{
-                    ...state,
-                    favs:[]
-                }
+        case ADD_FAV:
+            let favArrAdd = state.user.favorites;
+            if (!favArrAdd.includes(action.payload)) {
+                favArrAdd.push(action.payload);
+            }
+            return {
+                ...state,
+                user: { ...state.user, favorites: favArrAdd }
+            };
+        
+        case REMOVE_FAV:
+            const filteredFavs = state.user.favorites.filter(x => x !== action.payload);
+            return {
+                ...state,
+                user: { ...state.user, favorites: filteredFavs }
+            };
+        case UPDATE_FAVS:
+            return{
+                ...state
+            }
+        case CLEAR_FAVS:
+            return{
+                ...state,
+                favs:[]
+            }
         default:
             return{
                 ...state,

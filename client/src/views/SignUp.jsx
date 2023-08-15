@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {useState} from "react"
 import style from "../style/SignUp.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import {signUp, login, clearErrors} from "../redux/actions"
-import { useNavigate, Link, NavLink} from 'react-router-dom'
+import { signUp, login } from '../redux/actions/userActions'
+import { clearErrors } from '../redux/actions/errorActions'
+import {NavLink} from 'react-router-dom'
 import signUpValidation from "../validation/signUpValidation"
 
 const SignUp = () => {
 
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const globalErrors = useSelector((state)=>state.errors)
     const [errors, setErrors] = useState({a:""})
     const [userData, setUserData] = useState({

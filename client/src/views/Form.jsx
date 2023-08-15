@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import style from "../style/Form.module.css"
 import {useNavigate} from "react-router-dom"
 import {useDispatch, useSelector} from "react-redux"
-import {clearErrors, getGenres, getVideoGames, postVideoGame, setNewErrors} from "../redux/actions"
+import { getVideoGames, postVideoGame, getGenres } from '../redux/actions/videoGameActions'
+import { setNewErrors, clearErrors} from '../redux/actions/errorActions'
 import {formValidation} from "../validation/formValidation"
 
 const Form = () => {
@@ -11,7 +12,6 @@ const Form = () => {
   const navigate = useNavigate()
   const globalErrors = useSelector((state)=>state.errors)
   
-
   const [input, setInput] = useState({
     name:"",
     image:"",

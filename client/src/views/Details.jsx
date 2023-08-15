@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import {getDetails, deleteVideoGame, clearDetail, notReloadAction, removeFav, addFav, updateFavs, getFavs, getVideoGames, allFilters} from "../redux/actions"
+import { removeFav, addFav, updateFavs, getFavs} from "../redux/actions/userActions"
+import { deleteVideoGame, getVideoGames} from '../redux/actions/videoGameActions'
 import { useDispatch, useSelector } from 'react-redux'
-import {useParams, useNavigate, useLocation} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
+import { getDetails, clearDetail } from '../redux/actions/detailActions'
 import style from "../style/Details.module.css"
 
 const Details = () => {
@@ -21,7 +23,7 @@ const Details = () => {
     dispatch(getDetails(id))
     dispatch(updateFavs(user.id, user.favorites))
     return ()=>dispatch(clearDetail())
-  },[favsId])
+  },[dispatch, favsId, id, user.favorites, user.id])
 
   function removeHTMLTags(inputString) {
     // Expresión regular para buscar etiquetas HTML
@@ -71,11 +73,11 @@ const Details = () => {
           <button className={style.btn} onClick={goBack}>↩</button>
           {detail.createdInDb 
           ? ( <div className={style.crud}>
-            <img className={style.iconEdit} src="https://cdn.discordapp.com/attachments/781222020770693152/1138704390925066251/image.png" onClick={editVideoGameHandler}/>
-            <img className={style.iconDelete} src="https://cdn.discordapp.com/attachments/781222020770693152/1138704388546891837/image.png" onClick={(e)=>deleteVideoGameHandler(e)}/>
+            <img className={style.iconEdit} alt="edit.icon" src="https://cdn.discordapp.com/attachments/781222020770693152/1138704390925066251/image.png" onClick={editVideoGameHandler}/>
+            <img className={style.iconDelete} alt="delete-icon" src="https://cdn.discordapp.com/attachments/781222020770693152/1138704388546891837/image.png" onClick={(e)=>deleteVideoGameHandler(e)}/>
             {isFav 
-            ? <img className={style.iconFav} onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036533126795324/image.png"/>
-            : <img className={style.iconFav} onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036565443915867/image.png"/>}</div>)
+            ? <img className={style.iconFav} alt="onFav-icon" onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036533126795324/image.png"/>
+            : <img className={style.iconFav} alt="offFav-icon" onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036565443915867/image.png"/>}</div>)
           : (<div className={style.xd}></div>) }
         </div>
             {detail?.image ? (<div className={style.spec} >
