@@ -1,0 +1,33 @@
+.allHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlpYE7mqcStPPBiHSTR4d1Ksj2cjXXbg5c43J9lE0y_cj5EsVqJlDwVDZCi1tBQ8VjglM&usqp=CAU); */
+    /* background-image: url(https://c4.wallpaperflare.com/wallpaper/566/278/519/digital-digital-art-artwork-fantasy-art-futuristic-hd-wallpaper-preview.jpg); */
+    /* background-image: url(https://e0.pxfuel.com/wallpapers/104/170/desktop-wallpaper-neon-80s-neon-vertical.jpg); */
+    /* background-image: url(https://cdn.bhdw.net/im/cyberpunk-neon-ninja-with-purple-fire-sword-wallpaper-91854_w635.webp); */
+    /* background-image: url(../images/Ken_Artboard.jpg); */
+    /* background-image: url(https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg); */
+    background-image: url(https://wallpapercave.com/wp/wp9108900.jpg);
+  
+    background-size: cover; /* Ajusta la imagen para que cubra todo el contenedor */
+    background-position: center;/* Centra la imagen en el contenedor */
+    background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el contenedor sea más grande */
+    /* width: 100vw; */ /* Ajusta el ancho al 100% del viewport */
+    /* height: 100vh; */ /* Ajusta la altura al 100% del viewport */
+  }
+
+  .homeCointainer{
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cartas se ajusten automáticamente en una nueva línea si no caben en el ancho disponible */
+    justify-content: center; /* Centra las cartas horizontalmente en el contenedor */
+    gap: 10px; /* Espacio de 10 píxeles entre cada carta */
+  
+  }
+  
+  .cardHomeContainer{
+    display: flex;
+    margin-top: 20px;
+    height: 100%;
+  }

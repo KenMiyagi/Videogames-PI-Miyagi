@@ -1,0 +1,235 @@
+
+/* Home.module.css */
+/* Estilos para el contenedor principal */
+/* .containerHome{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+} */
+
+.notLoaded{
+  height: 600px;
+}
+
+.allHome{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlpYE7mqcStPPBiHSTR4d1Ksj2cjXXbg5c43J9lE0y_cj5EsVqJlDwVDZCi1tBQ8VjglM&usqp=CAU); */
+  /* background-image: url(https://c4.wallpaperflare.com/wallpaper/566/278/519/digital-digital-art-artwork-fantasy-art-futuristic-hd-wallpaper-preview.jpg); */
+  /* background-image: url(https://e0.pxfuel.com/wallpapers/104/170/desktop-wallpaper-neon-80s-neon-vertical.jpg); */
+  /* background-image: url(https://cdn.bhdw.net/im/cyberpunk-neon-ninja-with-purple-fire-sword-wallpaper-91854_w635.webp); */
+  /* background-image: url(../images/Ken_Artboard.jpg); */
+  /* background-image: url(https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg); */
+  background-image: url(https://wallpapercave.com/wp/wp9108900.jpg);
+
+  background-size: cover; /* Ajusta la imagen para que cubra todo el contenedor */
+  background-position: center;/* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el contenedor sea más grande */
+  /* width: 100vw; */ /* Ajusta el ancho al 100% del viewport */
+  /* height: 100vh; */ /* Ajusta la altura al 100% del viewport */
+}
+.filtersRender{
+  display: flex;
+  height: 35px;
+  justify-content: end;
+  margin-right: 32px;
+}
+
+.filtersDiv{
+  display: flex;
+  background-color: #0a0a1b;
+  border-radius: 7px;
+  /* background-color: #2abdf7; */
+  width: 429px;
+  margin-right: 10px;
+}
+
+.filtersRenderTitle{
+  color: #ffff;
+  font-size: 15px;
+  margin-right:12px;
+  font-size: small;
+}
+
+.filterDivRender{
+  color:#ffffff;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 0.5px solid rgba(194, 12, 12, 0.705);
+  font-size: 12px;
+  flex-wrap: wrap;
+  margin-left: 10px;
+  background-color: #7474cc;
+  max-width: 300px;
+  min-width: 85px;
+  font-weight: bold;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.filterCloseButton{
+  background-color: red;
+  height: 21px;
+  border-radius: 6px;
+}
+
+.searchButton{
+  background-color: #e46eaa;
+  color: #fff;
+  padding: 9px 19px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.icon{
+  padding: 9px 9px 9px 9px;
+  padding-left: 12px;
+  padding-right: 12px;
+  /* margin-right: 5px; */
+  cursor: pointer;
+  border: 1px solid #2abdf7;
+  border-radius: 4px;
+  background-color: #e46eaa;
+  scale: 0.8;
+  margin-top: 37px;
+  margin-left: 18px;
+  height: 30px;
+  width: 30px;
+}
+.icon:hover{
+  background-color: #c75495;
+}
+.icon:active{
+  background-color: #974272;
+  transform: scale(0.98);
+}
+
+.homeCointainer{
+  display: flex;
+  flex-wrap: wrap; /* Permite que las cartas se ajusten automáticamente en una nueva línea si no caben en el ancho disponible */
+  justify-content: center; /* Centra las cartas horizontalmente en el contenedor */
+  gap: 10px; /* Espacio de 10 píxeles entre cada carta */
+
+}
+
+.cardHomeContainer{
+  display: flex;
+}
+
+.allComponents{
+  width: 97.7%;
+  height: 130px;
+  margin-left:10px;
+  margin-right:10px;
+  background-color: #111133; /* (44, 187, 139, 0.336) */
+  padding: 1%;
+  border-radius: 8px;
+  border: 0.5px solid rgba(233, 202, 66, 0.705);
+  margin-top: 0%;
+}
+
+.components{
+  display: flex;
+  justify-content:space-evenly;
+}
+  
+  /* Estilos para el título */
+
+  /* Estilos para la información de la página */
+  .pageInfo {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el contenedor de botones */
+  .buttonsContainer {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el contenedor de botones de navegación */
+  .page {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Estilos para los botones de navegación */
+  .page button {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+  
+  /* Estilos para el contenedor de botones de filtro por creación */
+  .created {
+    display: block;
+    align-items: center;
+  }
+  
+  /* Estilos para los botones de filtro por creación */
+  .created button {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+  
+  /* Estilos para el contenedor de botones de orden */
+  .orden {
+    display: block;
+    align-items: center;
+  }
+  
+  /* Estilos para los botones de orden */
+  .orden button {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+
+  .rating {
+    display:block;
+    align-items: center;
+  }
+  
+  /* Estilos para los botones de filtro por creación */
+  .rating button {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+  }
+
+  .Card{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px;
+    width: calc(20% - 30px); /* Ajusta el ancho de las cartas para que haya 5 por fila */
+    /* Puedes ajustar el ancho según tus necesidades, ten en cuenta los márgenes */
+  }

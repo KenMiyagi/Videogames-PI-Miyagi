@@ -1,0 +1,127 @@
+/* NavBar.module.css */
+
+/* Estilos para el contenedor principal de la barra de navegación */
+.navContainer {
+  background-color: #111133;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  border: 4px solid #ff99cc; /* Cambio de borde */
+  border-radius: 8px; /* Bordes más suaves */
+  margin-left: 2px;
+  max-height: 80px;
+}
+
+.icon{
+  width: 30px;
+  margin: 0%;
+}
+
+.logOut{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+  background-color: #42383f;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 50px;
+}
+.user img{
+  width: 42px;
+  height: 42px;
+  margin-left: 10px;
+  border-radius: 50px;
+}
+.user img:hover{
+  opacity:0.8;
+}
+
+.user:hover{
+  cursor: pointer;
+}
+
+.user p{
+  color: #ffff;
+  font-size: 14px;
+}
+
+/* Estilos para el contenido de la barra de navegación */
+.navContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Estilos para el contenedor del logo */
+.navLogo {
+  margin-right: 10px;
+}
+
+/* Estilos para los enlaces de navegación */
+.navLink {
+  margin-left: 10px;
+  margin-right: 5px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #8e6db0;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+
+.navLink:hover {
+  background-color: #b589c3;
+}
+
+/* Estilos para el enlace activo */
+.navLink.active {
+  background-color: #6a348e;
+}
+
+/* Estilos para la imagen del logo */
+.navImage {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* Estilos para el enlace activo */
+.navLink.active {
+  font-weight: bold;
+}
+
+/* Estilos para los iconos de los enlaces */
+.navIcon {
+  margin-right: 5px;
+}
+
+.title {
+      font-size: calc(2.86rem - 2.7vh);
+      color: #e46eaa; /* Neon pink/purple color */
+      text-shadow: 0 0 8px rgba(228, 110, 170, 0.8);
+      margin: 0%;
+      justify-content: center;
+  
+      text-shadow: 
+      -1px -1px 0 black,   /* Sombra superior izquierda */
+       1px -1px 0 black,   /* Sombra superior derecha */
+      -1px  1px 0 black,   /* Sombra inferior izquierda */
+       1px  1px 0 black;   /* Sombra inferior derecha */
+    }

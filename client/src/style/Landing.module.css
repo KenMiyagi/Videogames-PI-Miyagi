@@ -1,0 +1,53 @@
+/* Landing.module.css */
+
+.landingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0f0c29; 
+    background-image: url(https://www.gamingdebugged.com/wp-content/uploads/2021/09/purple-gaming-set-up-2-scaled.jpeg);
+  
+    background-size: cover; /* Ajusta la imagen para que cubra todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el contenedor sea más grande */
+    width: 100vw; /* Ajusta el ancho al 100% del viewport */
+    height: 100vh; /* Ajusta la altura al 100% del viewport */
+/*     background-image: linear-gradient(315deg, #0f0c29 0%, #302b63 74%); */
+
+  /* Purpleish background color */
+    /* Add more styles for shadows or other effects if needed */
+  }
+  
+  .title {
+    font-size: 3rem;
+    color: #e46eaa; /* Neon pink/purple color */
+    text-shadow: 0 0 8px rgba(228, 110, 170, 0.8);
+    margin-bottom: 2rem;
+
+    text-shadow: 
+    -1px -1px 0 black,   /* Sombra superior izquierda */
+     1px -1px 0 black,   /* Sombra superior derecha */
+    -1px  1px 0 black,   /* Sombra inferior izquierda */
+     1px  1px 0 black;   /* Sombra inferior derecha */
+  }
+  
+  .link {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: #8105d8; /* Neon purple color */
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .link:hover {
+    background-color: #b02ed1; /* Darker neon purple color on hover */
+  }
+  
+  .link:focus {
+    outline: none;
+    box-shadow: 0 0 4px rgba(129, 5, 216, 0.8);
+  }

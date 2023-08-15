@@ -1,0 +1,69 @@
+.cardContainer {
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 245px;
+  height: 320px;
+
+  margin-left: 5px;
+  margin-right: 5px;
+
+  border-radius: 20px;
+  background-color: #5e4484;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.cardContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  width: 190px;
+  border-radius: 15px;
+  border: 5px solid rgba(99, 8, 160, 0.726);
+  border: 2px solid #8d6fb7;
+  clip-path: polygon(10% 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.content {
+  padding: 10px;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.genres {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.platform {
+  font-size: 0.9rem;
+}
+
+.cardContainer {
+  background-color: #8d6fb7;
+}
+
+.name {
+  color: #fff;
+}
+
+.genre {
+  color: #f0e4f7;
+}
+
+.platform {
+  color: #f0e4f7;
+}
+ 

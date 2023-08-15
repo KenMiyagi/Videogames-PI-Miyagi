@@ -1,0 +1,160 @@
+.detailsContainer {
+    background-image: linear-gradient(to bottom, #5508e6, #682f5d);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 97%;
+    justify-content: center;
+  }
+
+  .xd{
+    width: 100px;
+    background-color: #5508e6;
+  }
+  h3{
+    display:flex;
+    margin-bottom: 40px;
+    color: #d4d646;
+    font-family: monospace;
+  }
+  .genresPlats{
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+  }
+
+  .genPlatTitle{
+    display:flex; 
+    align-items:start;
+    margin-bottom:0px;
+    color: #d4f711;
+    font-size: 22px;
+  }
+  .genresPlats{
+    display:flex; 
+    align-items:start;
+    font-size: 17px;
+    color: #e5e6f0;
+  }
+
+  .spec{
+    margin-top: 0%;
+    padding-top: 0%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .crud{
+    display: flex;
+  }
+
+/*   width: 430px;
+  height: 280px; */
+  .desc{
+    margin-top: 40px;
+    max-height: 280px;
+    max-width: 600px;
+    width: 630px;
+    overflow: auto;
+    height: 378px;
+    color: #d8d5da;
+    font-size: 15.5px;
+    font-family:monospace;
+  }
+
+  .divButton{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Estilos para el contenedor del contenido */
+  .spec {
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  .iconDelete{
+    color: aliceblue;
+    padding: 8px 12px;
+    font-size: 14px;
+    /* margin-right: 5px; */
+    cursor: pointer;
+    border: 1px solid #2abdf7;
+    border-radius: 4px;
+    background-color:  #c570e7;
+    scale: 0.8;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 30px;
+    height: 30px;
+  }
+  .iconDelete:hover{
+    background-color: #e70909f5;
+  }
+  .iconEdit:hover{
+    background-color: #5cee08f5;
+  }
+  .iconEdit{
+    color: aliceblue;
+    padding: 8px 12px;
+    font-size: 14px;
+    /* margin-right: 5px; */
+    cursor: pointer;
+    border: 1px solid #2abdf7;
+    border-radius: 4px;
+    background-color: #c570e7;
+    scale: 0.8;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 30px;
+    height: 30px;
+  }
+  .iconFav{
+    color: aliceblue;
+    padding: 8px 12px;
+    font-size: 14px;
+    /* margin-right: 5px; */
+    cursor: pointer;
+    border: 1px solid #2abdf7;
+    border-radius: 4px;
+    background-color: #c570e7;
+    scale: 0.8;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 30px;
+    height: 30px;
+  }
+  .iconFav:hover{
+    background-color: #d8c4c3e1;
+  }
+  
+  /* Estilos para la imagen */
+  .img {
+    border-radius: 10px;
+    border: 4px solid #0077b6;
+    width: 430px;
+    height: 280px; /* Aumentamos la altura de la imagen */
+    object-fit: cover;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para el botón de regresar */
+  .btn {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #0077b6;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #005a8e;
+  }
