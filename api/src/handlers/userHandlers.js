@@ -10,7 +10,7 @@ const createUserHandler = async (req, res)=>{
         const {email, userName, password, favorites} = req.body
         const newUser = await createUserController(email, userName ,password, favorites)
         if(newUser) return res.status(200).json(newUser)
-        return res.status(444).json({error: "Email in use"})
+        return res.status(400).json({error: "Email in use"})
     } catch (error) {
         res.status(400).json({error:"Username already chosen"})
     }

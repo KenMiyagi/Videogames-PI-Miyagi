@@ -1,11 +1,15 @@
 import axios from "axios"
-export const ERRORS = "ERRORS"
 
-export const ALL_FILTERS = "ALL_FILTERS"
-export const ADD_FILTER = "ADD_FILTER"
-export const REMOVE_FILTER = "REMOVE_FILTER"
-export const SEARCH_FILTER = "SEARCH_FILTER"
-export const PAGINATE = "PAGINATE"
+import {ALL_FILTERS, ADD_FILTER, REMOVE_FILTER, SEARCH_FILTER, PAGINATE, PAGINATE2} from "../actionTypes"
+
+export function paginate2(x){
+    return async function(dispatch){
+        dispatch({
+            type: PAGINATE2,
+            payload : x
+        })
+    }
+}
 
 export function addFilter(obj){
     return async function(dispatch){
@@ -47,6 +51,7 @@ export function searchByName(name){
     return async function(dispatch){
         try {
             const response = await axios.get(`http://localhost:3001/videogames?name=${name}`)
+            console.log("RESPONSE EN ACTION: ",response);
             dispatch({
                 type: SEARCH_FILTER,
                 payload: response.data

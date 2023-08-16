@@ -1,5 +1,4 @@
-export const ERRORS = "ERRORS"
-export const CLEAR_ERRORS = "CLEAR_ERRORS"
+import {ERRORS, CLEAR_ERRORS} from "../actionTypes"
 
 export function setNewErrors(obj){
     return async function(dispatch){

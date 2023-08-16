@@ -1,27 +1,22 @@
 import axios from "axios"
-export const ERRORS = "ERRORS"
-
+import { ERRORS,
 //------------------------USERS------------------------
-export const LOGIN = "LOGIN"
-export const LOG_OUT = "LOG_OUT"
-export const SIGN_UP = "SIGN_UP"
-export const NEW_PROFPIC = "NEW_PROFPIC"
-//------------------------USERS------------------------
-
+    LOGIN, 
+    LOG_OUT, 
+    SIGN_UP, 
+    NEW_PROFPIC, 
 //------------------------USERS/FAVS------------------------
-export const GET_FAVS = "GET_FAVS"
-export const REMOVE_FAV = "REMOVE_FAV"
-export const ADD_FAV = "ADD_FAV"
-export const UPDATE_FAVS = "UPDATE_FAVS"
-export const CLEAR_FAVS = "CLEAR_FAVS"
-//------------------------USERS/FAVS------------------------
+    GET_FAVS, 
+    REMOVE_FAV, 
+    ADD_FAV, 
+    UPDATE_FAVS, 
+    CLEAR_FAVS} from "../actionTypes"
 
 export function login(userData){
     return async function(dispatch){
         try {
             const {email, password} = userData
-            const response = await axios.get(`http://localhost:3001/user/login?email=${email}&password=${password}`)         
-            console.log("RESPONSE: ",response);
+            const response = await axios.get(`http://localhost:3001/user/login?email=${email}&password=${password}`)
             const {data} = response
             dispatch({
                 type: LOGIN,
@@ -53,15 +48,15 @@ export function signUp(userData){
                 type: SIGN_UP,
                 payload: response.data
             })
+            return false
         } catch (error) {
-            console.log(error.response.data);
             dispatch({
                 type: ERRORS,
                 payload: {type: SIGN_UP ,error:error.response.data}
             })
+            return error
         }
     }
-
 }
 
 export function newProfPic(userId, profPic){
@@ -78,6 +73,8 @@ export function newProfPic(userId, profPic){
         }
     }
 }
+
+//------------------------USERS/FAVS------------------------
 
 export function getFavs(userId){
     return async function(dispatch){

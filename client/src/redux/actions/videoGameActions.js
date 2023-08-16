@@ -1,13 +1,19 @@
 import axios from "axios"
-export const ERRORS = "ERRORS"
 //------------------------CRUD------------------------
-export const GET_VIDEOGAMES = "GET_VIDEOGAMES"
+/* export const GET_VIDEOGAMES = "GET_VIDEOGAMES"
 export const POST_VIDEOGAME = "POST_VIDEOGAME"
 export const PATCH_VIDEOGAME = "PATCH_VIDEOGAME"
 export const DELETE_VIDEOGAME = "DELETE_VIDEOGAME"
 //------------------------CRUD------------------------
 export const GET_GENRES = "GET_GENRES"
-export const NOT_RELOAD = "NOT_RELOAD"
+export const NOT_RELOAD = "NOT_RELOAD" */
+
+import {ERRORS ,GET_VIDEOGAMES,
+    POST_VIDEOGAME,
+    PATCH_VIDEOGAME,
+    DELETE_VIDEOGAME,
+    GET_GENRES,
+    NOT_RELOAD} from "../actionTypes"
 
 export function getVideoGames(){
     return async function(dispatch){

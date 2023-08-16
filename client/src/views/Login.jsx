@@ -19,7 +19,7 @@ const Login = () => {
   useEffect(()=>{
     dispatch(logOut())
    dispatch(clearFavs())
-   dispatch(clearErrors())
+   return ()=>dispatch(clearErrors())
   },[dispatch])
 
 
@@ -37,11 +37,12 @@ const Login = () => {
     const  handleSubmit=(event)=>{
         event.preventDefault()
         dispatch(login(userData))
-        if(access){setUserData({
+        if(access){
+          setUserData({
           email: '',
           password: '',
-        })}
-        dispatch(clearErrors())
+        })
+      }
     }
 
     let isSubmitDisabled = Object.keys(errors).length > 0;

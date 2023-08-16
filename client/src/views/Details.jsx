@@ -78,7 +78,9 @@ const Details = () => {
             {isFav 
             ? <img className={style.iconFav} alt="onFav-icon" onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036533126795324/image.png"/>
             : <img className={style.iconFav} alt="offFav-icon" onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036565443915867/image.png"/>}</div>)
-          : (<div className={style.xd}></div>) }
+          : (<>{isFav 
+            ? <img className={style.iconFav} alt="onFav-icon" onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036533126795324/image.png"/>
+            : <img className={style.iconFav} alt="offFav-icon" onClick={handleFavorite} src="https://cdn.discordapp.com/attachments/1104235122636619887/1141036565443915867/image.png"/>}</>) }
         </div>
             {detail?.image ? (<div className={style.spec} >
               <div style={{width:"430px"}} className={style.descDiv}>

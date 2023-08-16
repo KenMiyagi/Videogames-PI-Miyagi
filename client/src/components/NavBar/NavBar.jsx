@@ -53,6 +53,7 @@ const NavBar = () => {
           <Link className={style.navLink} to="/form"><img className={style.icon} alt="home-icon" src="https://cdn.discordapp.com/attachments/781222020770693152/1138336789808025610/image.png"></img></Link>
           <Link className={style.navLink} to="/favs"><img className={style.icon} alt="home-icon" src="https://cdn.discordapp.com/attachments/781222020770693152/1138697610815881226/image.png"></img></Link>
           <Link className={style.navLink} to="/about"><img className={style.icon} alt="home-icon" src="https://cdn.discordapp.com/attachments/781222020770693152/1138336314228482098/image.png"></img></Link>
+          <Link className={style.navLink} to="/test"><img className={style.icon} alt="home-icon" src="https://cdn.discordapp.com/attachments/781222020770693152/1138336314228482098/image.png"></img></Link>
         </div>
       </div>
       <h1 className={style.title}>{title}</h1>

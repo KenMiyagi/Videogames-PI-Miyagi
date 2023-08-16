@@ -32,27 +32,30 @@ const SignUp = () => {
     }
     function handleSubmit(event){
         event.preventDefault()
+        if(Object.keys(errors)?.length===0){
         dispatch(signUp({
             email:userData.email,
             userName:userData.userName,
             password:userData.password2
-        }))
-        if((globalErrors?.SIGN_UP)){
-            setTimeout(()=>{
-                setUserData({
-                    email:"",
-                    userName:"",
-                    password1:"",
-                    password2:""
-                })
-                dispatch(login({
-                    email:userData.email,
-                    password: userData.password2
-                }))
-                dispatch(clearErrors())
-            },1000)
-        }
+        })).then((signUpError)=>{
+            if(!signUpError){
+                    setUserData({
+                        email:"",
+                        userName:"",
+                        password1:"",
+                        password2:""
+                    })
+                    dispatch(login({
+                        email:userData.email,
+                        password: userData.password2
+                    }))
+                    dispatch(clearErrors())
+            }else{
+                setErrors({type: "SIGN_UP", error: signUpError?.response.data})
+            }
+        })
     }
+}
 
     let isSubmitDisabled = Object.keys(errors).length > 0;
 

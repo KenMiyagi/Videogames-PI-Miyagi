@@ -1,6 +1,5 @@
 import axios from "axios"
-export const GET_DETAILS = "GET_DETAILS"
-export const CLEAR_DETAIL = "CLEAR_DETAIL"
+import { GET_DETAILS, CLEAR_DETAIL} from "../actionTypes"
 
 export function getDetails(id){
     return async function(dispatch){

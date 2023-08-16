@@ -20,14 +20,15 @@ import {
     UPDATE_FAVS,
     CLEAR_FAVS,
     ERRORS,
-    CLEAR_ERRORS
-} from "./actions"
+    CLEAR_ERRORS,
+    PAGINATE2
+} from "./actionTypes"
 
 let initialState = {
     //Paginado
-    videoGames: [], currentPage:0, videoGamesPaginate:[], pageNumbers:[],
+    videoGames: [], currentPage:1, videoGamesPaginate:[],pages:[], filteredPaginate:[],
     //Filters
-    videoGamesFiltered: [], filter:false, coincidences: true, arrayFilterArguments: [],
+    videoGamesFiltered: [], coincidences: true, arrayFilterArguments: [],
     //Details
     videoGameDetail: {}, notReload: false,
     //Generos
@@ -45,11 +46,20 @@ function rootReducer(state= initialState, action){
     const ITEMS_PER_PAGE = 15
     switch(action.type){
         case GET_VIDEOGAMES:
-            console.log(state.errors)
+            const totalPagesGet = Math.ceil(action.payload.length / ITEMS_PER_PAGE)
+            const pagesGet = [...Array(totalPagesGet + 1).keys()].slice(1);
+
+            const indexOfLastPageGet = state.currentPage  * ITEMS_PER_PAGE;
+            const indexOfFirstPageGet = indexOfLastPageGet - ITEMS_PER_PAGE;
+
+            const videoGamesRenderGet = action.payload.slice(indexOfFirstPageGet,indexOfLastPageGet)
             return {
                 ...state,
                 videoGames: action.payload,
-                videoGamesPaginate: [...action.payload].splice(0,ITEMS_PER_PAGE),
+                filteredPaginate:action.payload,
+                videoGamesPaginate:videoGamesRenderGet,
+                pages: pagesGet,
+                currentPage:1
             }
         case GET_DETAILS:
             return {
@@ -76,43 +86,55 @@ function rootReducer(state= initialState, action){
             return {
                 ...state, errors :{}
             }
-        case PAGINATE:
-            const next_page = state.currentPage + 1;
-            const prev_page = state.currentPage -1;
-            const firstIndex = action.payload === "next" ? next_page * ITEMS_PER_PAGE : prev_page * ITEMS_PER_PAGE; 
-
-            if (action.payload === "prev" && prev_page<0) {return {...state}}
-
-            if(state.filter){
-                if(firstIndex>= state.videoGamesFiltered.length){return {...state}}
-                return{
-                    ...state,
-                    videoGamesPaginate: [...state.videoGamesFiltered].splice(firstIndex, ITEMS_PER_PAGE),
-                    currentPage: action.payload === "next" ? next_page: prev_page,
+        case PAGINATE2:
+            if(isNaN(action.payload)){
+                if(action.payload==="next"){
+                    //CURRENT ++
+                    if(state.currentPage !== state.pages.length){var letCurrent = state.currentPage+1}else{
+                        return{...state}
+                    }
+                }else if(action.payload==="prev"){
+                    //CURRENT --
+                    if(state.currentPage !== 1){var letCurrent = state.currentPage-1}else{
+                        return{...state}
+                    }
                 }
+            }else{
+                //SET CURRENT con payload
+                var letCurrent = action.payload
             }
-
-            if(action.payload=== "next" && firstIndex >= [...state.videoGames].length){return {...state}}
+            const totalPages = Math.ceil(state.filteredPaginate.length / ITEMS_PER_PAGE)
+            const pages = [...Array(totalPages + 1).keys()].slice(1);
+            const indexOfLastPage = letCurrent  * ITEMS_PER_PAGE;
+            const indexOfFirstPage = indexOfLastPage - ITEMS_PER_PAGE;
+            const videoGamesRender = state.filteredPaginate.slice(indexOfFirstPage,indexOfLastPage)
             return {
                 ...state,
-                videoGamesPaginate: [...state.videoGames].splice(firstIndex, ITEMS_PER_PAGE),
-                currentPage: action.payload === "next" ? next_page: prev_page,
+                currentPage: letCurrent,
+                videoGamesPaginate: videoGamesRender,
+                pages:pages
             }
-            case SEARCH_FILTER:
+        case SEARCH_FILTER:
             const response = action.payload
             if(response.length>0){
+                const totalPages = Math.ceil(response.length / ITEMS_PER_PAGE)
+                const pages = [...Array(totalPages + 1).keys()].slice(1);
+                const indexOfLastPage = 1  * ITEMS_PER_PAGE;
+                const indexOfFirstPage = indexOfLastPage - ITEMS_PER_PAGE;
+
+                const videoGamesRender = response.slice(indexOfFirstPage,indexOfLastPage)
                 return{
                     ...state,
-                    filter: true,
-                    coincidences: true,
-                    videoGamesFiltered: response,
-                    videoGamesPaginate: response.slice(0, ITEMS_PER_PAGE)
+                    currentPage:1,
+                    filteredPaginate:response,
+                    pages:pages,
+                    videoGamesPaginate:videoGamesRender
                 }
             }else{
                 return {
-                    ...state, filterNotFound: true, videoGamesPaginate:[]
+                    ...state, filterNotFound: true, videoGamesPaginate:[], pages:[]
                 }
-            }
+            } 
             case CLEAR_DETAIL:
                 return {
                     ...state,
@@ -186,11 +208,19 @@ function rootReducer(state= initialState, action){
                     filteredArr = filteredArr.filter(x=>x.genres.some(z=>z.name===genres.filterArgument))
             }
             if(filteredArr.length > 0){
+                const totalPages = Math.ceil(filteredArr.length / ITEMS_PER_PAGE)
+                const pages = [...Array(totalPages + 1).keys()].slice(1);
+
+                const indexOfLastPage = ITEMS_PER_PAGE;
+                const indexOfFirstPage = indexOfLastPage - ITEMS_PER_PAGE;
+
+                const videoGamesRender = filteredArr.slice(indexOfFirstPage,indexOfLastPage)
                 return {
                     ...state,
-                    filter: true,
-                    videoGamesFiltered:filteredArr,
-                    videoGamesPaginate: filteredArr.slice(0, ITEMS_PER_PAGE)
+                    filteredPaginate:filteredArr,
+                    pages:pages,
+                    currentPage:1,
+                    videoGamesPaginate:videoGamesRender
                 }
             }else{
                 return {
@@ -200,6 +230,7 @@ function rootReducer(state= initialState, action){
             
         case LOGIN:
             const {access, user, error} = action.payload
+            console.log("HAYRESPONSE 200");
             if(!error){
                 return {
                     ...state,

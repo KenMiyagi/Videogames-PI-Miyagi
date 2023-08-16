@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 
-import { removeFilter,allFilters } from '../redux/actions/filterPaginateActions'
+import { removeFilter,allFilters, paginate2 } from '../redux/actions/filterPaginateActions'
 import { getVideoGames, notReloadAction } from '../redux/actions/videoGameActions'
 
 import style from "../style/Home.module.css"
@@ -23,10 +23,11 @@ const Home = () => {
       dispatch(getVideoGames())
       dispatch(notReloadAction(true))
     }
-  },[dispatch, notReload])
+  },[])
 
   const reloadVG = ()=>{
     dispatch(getVideoGames())
+    dispatch(paginate2(1))
   }
 
   const deleteFilter =(event)=>{

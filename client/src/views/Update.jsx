@@ -35,7 +35,7 @@ const Update = () => {
     validateInput({...input, platforms: [...input.platforms, platformsDetail]})
     validateInput({...input, genres: [...input.platforms, genresDetail]})
     return ()=>dispatch(clearErrors())
-  },[ dispatch, genresDetail, id, input, platformsDetail])
+  },[ dispatch])
 
   const [errors, setErrors] = useState({a:""})
   
