@@ -29,9 +29,6 @@ const getVGByNameController = async(name)=>{
     const finalResponse = [...dataBaseResponse, ...apiResponse]
     if(finalResponse.length) return finalResponse
     throw Error("Couldn't find coincidences")
-
-    
-    //Retornamos una concatenación de los dos arreglos con la información.
 }
 
 const getAllVGController = async()=>{
@@ -67,10 +64,10 @@ const getAllVGController = async()=>{
 const createVGController = async (props, genres)=>{
     //Creo el videojuego en la base de datos
     const {name} = props
-    console.log(props);
+    const img = "https://media.wired.com/photos/62feb60bcea7c0581e825cb0/4:3/w_2131,h_1598,c_limit/Fate-of-Game-Preservation-Games-GettyImages-1170073827.jpg"
     const [newVG, created] = await Videogame.findOrCreate({
         where: {name},
-        defaults: props 
+        defaults: {...props, image: props.image ? props.image : img} 
     })
     if(created){
       //Hago la relación para que 
@@ -173,7 +170,7 @@ const updateVGController= async (props)=>{
       await vg.addGenre(genreId)
     }
   }
-  return editedGame
+  return editedGame[0]
 }
 
 module.exports={

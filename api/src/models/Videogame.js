@@ -15,7 +15,9 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
+      allowNull:true,
+      defaultValue:"https://cdn.discordapp.com/attachments/781222020770693152/1140041535203848364/image.png"
     },
     description: {
       type: DataTypes.STRING,

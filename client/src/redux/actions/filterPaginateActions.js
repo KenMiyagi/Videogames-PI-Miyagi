@@ -2,15 +2,6 @@ import axios from "axios"
 
 import {ALL_FILTERS, ADD_FILTER, REMOVE_FILTER, SEARCH_FILTER, PAGINATE, PAGINATE2} from "../actionTypes"
 
-export function paginate2(x){
-    return async function(dispatch){
-        dispatch({
-            type: PAGINATE2,
-            payload : x
-        })
-    }
-}
-
 export function addFilter(obj){
     return async function(dispatch){
         dispatch({
@@ -29,11 +20,11 @@ export function removeFilter(arg){
     }
 }
 
-export function paginate(order){
+export function paginate(x){
     return async function(dispatch){
         dispatch({
             type:PAGINATE,
-            payload: order
+            payload: x
         })
     }
 }

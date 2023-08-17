@@ -21,14 +21,13 @@ import {
     CLEAR_FAVS,
     ERRORS,
     CLEAR_ERRORS,
-    PAGINATE2
 } from "./actionTypes"
 
 let initialState = {
     //Paginado
-    videoGames: [], currentPage:1, videoGamesPaginate:[],pages:[], filteredPaginate:[],
+    videoGames: [], currentPage:1, videoGamesPaginate:[],pages:[], 
     //Filters
-    videoGamesFiltered: [], coincidences: true, arrayFilterArguments: [],
+     arrayFilterArguments: [], filteredPaginate:[], coincidences: true,
     //Details
     videoGameDetail: {}, notReload: false,
     //Generos
@@ -37,7 +36,7 @@ let initialState = {
     patchVideoGame:{},
 
     //IDEAS LOCAS:
-    access: false, user: {}, favs: [], loginError:"",
+    access: false, user: {}, favs: [],
 
     filterNotFound:false, errors:{}
 }
@@ -59,7 +58,8 @@ function rootReducer(state= initialState, action){
                 filteredPaginate:action.payload,
                 videoGamesPaginate:videoGamesRenderGet,
                 pages: pagesGet,
-                currentPage:1
+                currentPage:1,
+                coincidences: true
             }
         case GET_DETAILS:
             return {
@@ -78,39 +78,38 @@ function rootReducer(state= initialState, action){
                 ...state,
                 errors:{...state.errors,[errObj.type]:errObj.error}
             }
+        case PATCH_VIDEOGAME:
+        case POST_VIDEOGAME:
         case CLEAR_ERRORS:
             return{
                 ...state, errors :{}
             }
-        case POST_VIDEOGAME:
-            return {
-                ...state, errors :{}
-            }
-        case PAGINATE2:
+        case PAGINATE:
+            var currentP
             if(isNaN(action.payload)){
                 if(action.payload==="next"){
                     //CURRENT ++
-                    if(state.currentPage !== state.pages.length){var letCurrent = state.currentPage+1}else{
+                    if(state.currentPage !== state.pages.length){ currentP = state.currentPage+1}else{
                         return{...state}
                     }
                 }else if(action.payload==="prev"){
                     //CURRENT --
-                    if(state.currentPage !== 1){var letCurrent = state.currentPage-1}else{
+                    if(state.currentPage !== 1){ currentP = state.currentPage-1}else{
                         return{...state}
                     }
                 }
             }else{
                 //SET CURRENT con payload
-                var letCurrent = action.payload
+                 currentP = action.payload
             }
             const totalPages = Math.ceil(state.filteredPaginate.length / ITEMS_PER_PAGE)
             const pages = [...Array(totalPages + 1).keys()].slice(1);
-            const indexOfLastPage = letCurrent  * ITEMS_PER_PAGE;
+            const indexOfLastPage = currentP  * ITEMS_PER_PAGE;
             const indexOfFirstPage = indexOfLastPage - ITEMS_PER_PAGE;
             const videoGamesRender = state.filteredPaginate.slice(indexOfFirstPage,indexOfLastPage)
             return {
                 ...state,
-                currentPage: letCurrent,
+                currentPage: currentP,
                 videoGamesPaginate: videoGamesRender,
                 pages:pages
             }
@@ -132,27 +131,18 @@ function rootReducer(state= initialState, action){
                 }
             }else{
                 return {
-                    ...state, filterNotFound: true, videoGamesPaginate:[], pages:[]
+                    ...state, filterNotFound: true, videoGamesPaginate:[], pages:[], coincidences:false
                 }
             } 
-            case CLEAR_DETAIL:
-                return {
-                    ...state,
-                    videoGameDetail:{}
-                }
-        case DELETE_VIDEOGAME:
-            return{
-                ...state
+        case CLEAR_DETAIL:
+            return {
+                ...state,
+                videoGameDetail:{}
             }
         case NOT_RELOAD:
             return {
                 ...state,
                 notReload: action.payload
-            }
-        case PATCH_VIDEOGAME:
-            return {
-                ...state,
-                patchVideoGame: action.payload
             }
         case ADD_FILTER:
             let arr = state.arrayFilterArguments
@@ -230,17 +220,11 @@ function rootReducer(state= initialState, action){
             
         case LOGIN:
             const {access, user, error} = action.payload
-            console.log("HAYRESPONSE 200");
             if(!error){
                 return {
                     ...state,
                     access: access,
                     user: user
-                }
-            }else{
-                return{
-                    ...state,
-                    loginError:error
                 }
             }
         case LOG_OUT:

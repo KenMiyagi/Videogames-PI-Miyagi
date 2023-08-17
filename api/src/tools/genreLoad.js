@@ -11,7 +11,6 @@ const genreLoad = async ()=>{
             const apiAll = (await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)).data.results
 
             const genres = apiAll.map(x=>x.name)
-            console.log(genres)
 //PARA LA POSTERIDAD:
 //NOTA MENTAL 
 /*             //Obtengo todos los generos (Tanto objetos como arreglo de objetos)

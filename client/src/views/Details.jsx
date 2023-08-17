@@ -43,12 +43,16 @@ const Details = () => {
 
   const deleteVideoGameHandler = (event)=>{
     event.preventDefault()
-    dispatch(deleteVideoGame(id))
+    dispatch(deleteVideoGame(id)).then(()=>{
+      dispatch(getVideoGames())
+    })
     dispatch(removeFav(id))
     dispatch(updateFavs(user.id, user.favorites))
     dispatch(getFavs(user.id))
     navigate(-1)
-    dispatch(getVideoGames())
+    /* setTimeout(()=>{
+      dispatch(getVideoGames())
+    },1500) */
   }
   //Favoritos
 
@@ -65,6 +69,12 @@ const Details = () => {
       }else{alert("You have reached the maximum number of favorites. Get premium to get unlimited favorites")}
     }
     dispatch(updateFavs(user.id, user.favorites))
+  }
+  const img = "https://media.wired.com/photos/62feb60bcea7c0581e825cb0/4:3/w_2131,h_1598,c_limit/Fate-of-Game-Preservation-Games-GettyImages-1170073827.jpg"
+  const [imgError, setImgError] = useState(false)
+
+  const onError = () =>{
+    setImgError(true)
   }
 
   return (
@@ -95,7 +105,7 @@ const Details = () => {
                     <h3 style={{margin: "0px", padding: "0px"}}>Released: {detail?.released}</h3>
                     <h3 style={{margin: "0px", padding: "0px"}}>Rating: {detail?.rating}</h3>
                   </div>
-                  <img className={style.img} src={detail?.image} alt={detail?.name} />
+                  <img className={style.img} src={imgError ? img : detail?.image} onError={()=>onError()} alt={detail?.name} />
                   <div className={style.genresPlats}>
                     <p className={style.genPlatTitle} >Platforms:</p>
                     <p>{detail?.platforms?.join(", ")}</p>

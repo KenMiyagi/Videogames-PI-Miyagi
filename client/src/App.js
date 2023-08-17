@@ -12,7 +12,6 @@ import About from "./views/About"
 import Favs from "./views/Favs"
 import Login from "./views/Login"
 import SignUp from "./views/SignUp"
-import Testeos from "./views/Testeos"
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -33,7 +32,6 @@ function App() {
     <div className="App">
       {!(pathname==="/" || pathname==="/login" || pathname==="/signup") && <NavBar path="/:"/>}
       <Routes>
-        <Route path="/test" element={<Testeos/>}/>
         <Route path="/" element={<Landing/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>

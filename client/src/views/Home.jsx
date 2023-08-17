@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 
-import { removeFilter,allFilters, paginate2 } from '../redux/actions/filterPaginateActions'
+import { removeFilter,allFilters, paginate } from '../redux/actions/filterPaginateActions'
 import { getVideoGames, notReloadAction } from '../redux/actions/videoGameActions'
 
 import style from "../style/Home.module.css"
@@ -27,7 +27,7 @@ const Home = () => {
 
   const reloadVG = ()=>{
     dispatch(getVideoGames())
-    dispatch(paginate2(1))
+    dispatch(paginate(1))
   }
 
   const deleteFilter =(event)=>{
@@ -77,10 +77,9 @@ const Home = () => {
               />
             </div>
           );
-        })): (filterNotFound ?(<p className={style.notLoaded}>SIN COINCIDENCIAS EN EL FILTRO PA</p>):(<p className={style.notLoaded}>LOADING...</p>) )
+        })): (filterNotFound ?(<img src="https://i.imgur.com/0XC49UU.png" className={style.notLoadedImage}/>):(<img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" className={style.notLoadedGif}/>) )
       }
       </div>
-      <Paginate/>
     </div>
   )
 }

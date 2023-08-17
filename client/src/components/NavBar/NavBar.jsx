@@ -4,6 +4,7 @@ import style from "./NavBar.module.css"
 import img from "../../images/joystick_icon.png"
 import { useDispatch, useSelector } from 'react-redux'
 import {logOut, newProfPic} from "../../redux/actions/userActions"
+import {paginate} from "../../redux/actions/filterPaginateActions"
 const NavBar = () => {
 
   const user = useSelector((state)=>state.user)
@@ -40,6 +41,7 @@ const NavBar = () => {
 
   const logOutHandler = ()=>{
     dispatch(logOut())
+    dispatch(paginate(1))
   }
 
   return (

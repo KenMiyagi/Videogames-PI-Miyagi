@@ -5,6 +5,7 @@
 
 .allHome{
   display: flex;
+  padding-bottom: 105px;
   flex-direction: column;
   align-items: center; /* Centra horizontalmente */
   justify-content: center; /* Centra verticalmente */
@@ -35,6 +36,13 @@
   border-radius: 7px;
   width: 429px;
   margin-right: 10px;
+}
+
+.notLoadedGif{
+  margin-top: 70px;
+  width: 90px;
+  height: 90px;
+  padding-bottom: 150px;
 }
 
 .filtersRenderTitle{

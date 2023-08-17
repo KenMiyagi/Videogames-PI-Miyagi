@@ -63,55 +63,6 @@ const updateVGHandler = async (req, res)=>{
     }
 }
 
-const editGame = async (req, res) => {
-    try {
-      const { id } = req.params;
-      const { name, description, platforms, genres, image, rating, released} = req.body;
-      const editedGame = await Videogame.update(
-        {
-          name: name,
-          image:image,
-          rating:rating,
-          released:released,
-          description: description,
-          platforms: platforms,
-          genres: genres,
-        },
-        {
-          where: {
-            id: id,
-          },
-        }
-      );
-      if(editedGame[0] === 0) {
-        return res.status(404).json({ error:'No se encuentra el juego solicitado' });
-      }
-  
-      const gameUpdated = await Videogame.findByPk(id);
-  
-      if (genres) {
-        await gameUpdated.setGenres([]);
-        for (const el of genres) {
-          let genreFinded = await Genre.findOne({
-            where: {
-              name: el,
-            },
-          });
-          await gameUpdated.addGenre(genreFinded);
-        }
-      }
-  
-      return res.status(200).json({
-        message: 'Juego modificado con éxito!',
-        result: gameUpdated,
-      });
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({error:error.message});
-    }
-};
-
-
 module.exports={
     createVGHandler,
     getVGHandler,

@@ -1,6 +1,7 @@
 .allHome{
     display: flex;
     flex-direction: column;
+    height: 50vw;
     align-items: center; /* Centra horizontalmente */
     justify-content: center; /* Centra verticalmente */
     /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlpYE7mqcStPPBiHSTR4d1Ksj2cjXXbg5c43J9lE0y_cj5EsVqJlDwVDZCi1tBQ8VjglM&usqp=CAU); */

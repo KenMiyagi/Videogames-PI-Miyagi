@@ -40,5 +40,3 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS"
 
 export const GET_GENRES = "GET_GENRES"
 export const NOT_RELOAD = "NOT_RELOAD"
-
-export const PAGINATE2 = "PAGINATE2"

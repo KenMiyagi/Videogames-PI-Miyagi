@@ -1,5 +1,5 @@
 import React from 'react'
-import { paginate , paginate2} from '../../redux/actions/filterPaginateActions';
+import { paginate } from '../../redux/actions/filterPaginateActions';
 import { useDispatch, useSelector } from 'react-redux';
 import style from "./Paginate.module.css"
 
@@ -7,21 +7,15 @@ const Paginate = () => {
   const pages = useSelector((state)=>state.pages)
   const currentPage = useSelector((state)=>state.currentPage)
     const dispatch = useDispatch()
-/*     const nextPage = () => {
-        dispatch(paginate('next'));
-      };
-    
-      const prevPage = () => {
-        dispatch(paginate('prev'));
-      }; */
+
       const setPaginate = (x) =>{
-        dispatch(paginate2(x))
+        dispatch(paginate(x))
     }
 
   return (
     <div className={style.paginate}>
       <div>
-            <button onClick={()=> setPaginate("prev")}>prev</button>
+            <button className={style.paginateButtons} style={{visibility : pages.length===0 ? "hidden" : "visible"}} onClick={()=> setPaginate("prev")}> {"<"} </button>
             {
                 pages.map((x) => (
                     <span
@@ -34,7 +28,7 @@ const Paginate = () => {
                     </span>
                   ))
             }
-            <button onClick={()=> setPaginate("next")}>next</button>
+            <button className={style.paginateButtons} style={{visibility : pages.length===0 ? "hidden" : "visible"}} onClick={()=> setPaginate("next")}>{">"} </button>
         </div>
     </div>
   )
