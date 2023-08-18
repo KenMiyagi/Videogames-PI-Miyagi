@@ -16,6 +16,9 @@
     padding: 8px;
     width: 70%;
 }
+.labelTitle{
+    margin-right: 20px;
+}
 
 .searchButton{
     margin: auto;

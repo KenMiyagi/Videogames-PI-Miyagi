@@ -131,6 +131,15 @@ const validateInput = (inputData) =>{
   }
 //---------------------GENRES---------------------
 const isSubmitDisabled = Object.keys(errors).length > 0;
+
+const [imgError,setImgError] = useState(true)
+const img = "https://media.wired.com/photos/62feb60bcea7c0581e825cb0/4:3/w_2131,h_1598,c_limit/Fate-of-Game-Preservation-Games-GettyImages-1170073827.jpg"
+const handleImageError = () =>{
+  setImgError(true)
+}
+const handleImageLoad = () =>{
+  setImgError(false)
+}
   return (
     <div className={style.container}>
       <div className={style.formContainer}>
@@ -204,7 +213,7 @@ const isSubmitDisabled = Object.keys(errors).length > 0;
         <div className={style.selected}>
           <div className={style.imageRender}>
             <h3>Image preview:  </h3>
-            <img className={style.imagePreview} src={input.image} alt={input.image?.length>0 ? "Not found" : ""} />
+            <img className={style.imagePreview} src={imgError ? img : input.image} alt={input.image?.length>0 ? "Not found" : ""} />
             <div style={{display: "flex", justifyContent:"space-between"}} >
               <input className={style.submit} type="submit" value="Cancel" onClick={()=>cancelButton()}/>
               <input className={style.submit} disabled={isSubmitDisabled} style={isSubmitDisabled ? {opacity: "0.6", cursor: "not-allowed"}:null} type="submit" value="Submit" onClick={(event)=>handleSubmit(event)}/>
@@ -233,6 +242,7 @@ const isSubmitDisabled = Object.keys(errors).length > 0;
           </div>
         </div>
       </div>
+      <img src={input.image} style={{display:"none"}} alt="xd" onLoad={()=>handleImageLoad()} />
     </div>
   )
 }

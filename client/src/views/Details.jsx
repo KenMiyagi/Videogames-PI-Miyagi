@@ -111,7 +111,7 @@ const Details = () => {
                     <p>{detail?.platforms?.join(", ")}</p>
                   </div>
                 </div>
-            </div>) : <p>Cargando...</p>}
+            </div>) : <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" className={style.notLoadedGif}/>}
         </div>
   )
 }

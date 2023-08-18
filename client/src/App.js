@@ -8,7 +8,6 @@ import Landing from "./views/Landing"
 import Details from "./views/Details"
 import NavBar from "./components/NavBar/NavBar"
 import Update from "./views/Update"
-import About from "./views/About"
 import Favs from "./views/Favs"
 import Login from "./views/Login"
 import SignUp from "./views/SignUp"
@@ -39,7 +38,6 @@ function App() {
         <Route path="/form" element={<Form/>}/>
         <Route path="/details/:id" element={<Details/>}/>
         <Route path="/update/:id" element={<Update/>} />
-        <Route path="/about" element={<About/>} />
         <Route path="/favs" element={<Favs/>} />
       </Routes>
     </div>

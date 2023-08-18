@@ -24,21 +24,18 @@ import {
 } from "./actionTypes"
 
 let initialState = {
-    //Paginado
-    videoGames: [], currentPage:1, videoGamesPaginate:[],pages:[], 
-    //Filters
-     arrayFilterArguments: [], filteredPaginate:[], coincidences: true,
+    //Videogames / generos
+    videoGames: [], genres:[],
     //Details
     videoGameDetail: {}, notReload: false,
-    //Generos
-    genres:[],
-    //CRUD
-    patchVideoGame:{},
-
-    //IDEAS LOCAS:
+    //Paginado
+    currentPage:1, videoGamesPaginate:[],pages:[], 
+    //Filters
+    arrayFilterArguments: [], filteredPaginate:[], coincidences: true, filterNotFound:false,
+    //Users/fav
     access: false, user: {}, favs: [],
-
-    filterNotFound:false, errors:{}
+    //Errors
+    errors:{}
 }
 
 function rootReducer(state= initialState, action){
@@ -77,12 +74,6 @@ function rootReducer(state= initialState, action){
             return {
                 ...state,
                 errors:{...state.errors,[errObj.type]:errObj.error}
-            }
-        case PATCH_VIDEOGAME:
-        case POST_VIDEOGAME:
-        case CLEAR_ERRORS:
-            return{
-                ...state, errors :{}
             }
         case PAGINATE:
             var currentP
@@ -147,15 +138,12 @@ function rootReducer(state= initialState, action){
         case ADD_FILTER:
             let arr = state.arrayFilterArguments
             if(action.payload.type === "create"){
-                //Elimino el anterior create
                 arr = arr.filter(x=>x.type!=="create")
             }
             if(action.payload.type === "sort"){
-                //Elimino el anterior create
                 arr = arr.filter(x=>x.type!=="sort")  
             }
             if(action.payload.type === "genres"){
-                //Elimino el anterior create
                 arr = arr.filter(x=>x.type!=="genres")
             }
             arr = [...arr, action.payload]
@@ -164,7 +152,6 @@ function rootReducer(state= initialState, action){
                 arrayFilterArguments: arr
             }
         case REMOVE_FILTER:
-
             const deleted = state.arrayFilterArguments.filter(x=>x.filterArgument!==action.payload)
             return{
                 ...state,
@@ -189,9 +176,9 @@ function rootReducer(state= initialState, action){
                 }else if(sort.filterArgument==="Z-A"){
                     filteredArr = filteredArr.sort((a, b) => b.name.localeCompare(a.name))
                 }else if(sort.filterArgument==="Ascending rating"){
-                    filteredArr = filteredArr.sort((a, b) => a.rating - b.rating)
-                }else if(sort.filterArgument==="Descending rating"){
                     filteredArr = filteredArr.sort((a, b) => b.rating - a.rating)
+                }else if(sort.filterArgument==="Descending rating"){
+                    filteredArr = filteredArr.sort((a, b) => a.rating - b.rating)
                 }
             }
             if(genres){
@@ -217,7 +204,7 @@ function rootReducer(state= initialState, action){
                     ...state, filterNotFound: true, videoGamesPaginate:[]
                 }
             }
-            
+//-------------------------------Users/Login-------------------------------
         case LOGIN:
             const {access, user, error} = action.payload
             if(!error){
@@ -246,21 +233,26 @@ function rootReducer(state= initialState, action){
                 ...state,
                 user: { ...state.user, favorites: favArrAdd }
             };
-        
         case REMOVE_FAV:
             const filteredFavs = state.user.favorites.filter(x => x !== action.payload);
             return {
                 ...state,
                 user: { ...state.user, favorites: filteredFavs }
             };
-        case UPDATE_FAVS:
-            return{
-                ...state
-            }
         case CLEAR_FAVS:
             return{
                 ...state,
                 favs:[]
+            }
+        case PATCH_VIDEOGAME:
+        case POST_VIDEOGAME:
+            return{
+                ...state, errors :{}, videoGamesPaginate:{}
+            }
+        case CLEAR_ERRORS:
+        case UPDATE_FAVS:
+            return{
+                ...state, errors :{}
             }
         default:
             return{

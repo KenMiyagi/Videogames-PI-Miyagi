@@ -7,21 +7,13 @@
   display: flex;
   padding-bottom: 105px;
   flex-direction: column;
-  align-items: center; /* Centra horizontalmente */
-  justify-content: center; /* Centra verticalmente */
-  /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlpYE7mqcStPPBiHSTR4d1Ksj2cjXXbg5c43J9lE0y_cj5EsVqJlDwVDZCi1tBQ8VjglM&usqp=CAU); */
-  /* background-image: url(https://c4.wallpaperflare.com/wallpaper/566/278/519/digital-digital-art-artwork-fantasy-art-futuristic-hd-wallpaper-preview.jpg); */
-  /* background-image: url(https://e0.pxfuel.com/wallpapers/104/170/desktop-wallpaper-neon-80s-neon-vertical.jpg); */
-  /* background-image: url(https://cdn.bhdw.net/im/cyberpunk-neon-ninja-with-purple-fire-sword-wallpaper-91854_w635.webp); */
-  /* background-image: url(../images/Ken_Artboard.jpg); */
-  /* background-image: url(https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg); */
+  align-items: center; 
+  justify-content: center; 
   background-image: url(https://wallpapercave.com/wp/wp9108900.jpg);
 
-  background-size: cover; /* Ajusta la imagen para que cubra todo el contenedor */
-  background-position: center;/* Centra la imagen en el contenedor */
-  background-repeat: no-repeat; /* Evita que se repita la imagen en caso de que el contenedor sea más grande */
-  /* width: 100vw; */ /* Ajusta el ancho al 100% del viewport */
-  /* height: 100vh; */ /* Ajusta la altura al 100% del viewport */
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .filtersRender{
   display: flex;
@@ -113,9 +105,9 @@
 
 .homeCointainer{
   display: flex;
-  flex-wrap: wrap; /* Permite que las cartas se ajusten automáticamente en una nueva línea si no caben en el ancho disponible */
-  justify-content: center; /* Centra las cartas horizontalmente en el contenedor */
-  gap: 10px; /* Espacio de 10 píxeles entre cada carta */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 
 }
 
@@ -139,16 +131,12 @@
   display: flex;
   justify-content:space-evenly;
 }
-  
-  /* Estilos para el título */
 
-  /* Estilos para la información de la página */
   .pageInfo {
     font-size: 16px;
     margin-bottom: 10px;
   }
   
-  /* Estilos para el contenedor de botones */
   .buttonsContainer {
     display: flex;
     justify-content:space-around;
@@ -156,13 +144,11 @@
     margin-bottom: 20px;
   }
   
-  /* Estilos para el contenedor de botones de navegación */
   .page {
     display: flex;
     align-items: center;
   }
   
-  /* Estilos para los botones de navegación */
   .page button {
     padding: 8px 12px;
     font-size: 14px;
@@ -173,13 +159,11 @@
     background-color: #f0f0f0;
   }
   
-  /* Estilos para el contenedor de botones de filtro por creación */
   .created {
     display: block;
     align-items: center;
   }
   
-  /* Estilos para los botones de filtro por creación */
   .created button {
     padding: 8px 12px;
     font-size: 14px;
@@ -190,13 +174,11 @@
     background-color: #f0f0f0;
   }
   
-  /* Estilos para el contenedor de botones de orden */
   .orden {
     display: block;
     align-items: center;
   }
   
-  /* Estilos para los botones de orden */
   .orden button {
     padding: 8px 12px;
     font-size: 14px;
@@ -212,7 +194,6 @@
     align-items: center;
   }
   
-  /* Estilos para los botones de filtro por creación */
   .rating button {
     padding: 8px 12px;
     font-size: 14px;
@@ -229,6 +210,5 @@
     border-radius: 8px;
     padding: 12px;
     margin: 10px;
-    width: calc(20% - 30px); /* Ajusta el ancho de las cartas para que haya 5 por fila */
-    /* Puedes ajustar el ancho según tus necesidades, ten en cuenta los márgenes */
+    width: calc(20% - 30px); 
   }

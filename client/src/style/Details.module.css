@@ -5,12 +5,12 @@
     border-radius: 10px;
     width: 97%;
     justify-content: center;
+    padding-bottom: 70px;
+    margin-bottom: 100px;
+    height: auto;
   }
 
-  .xd{
-    width: 100px;
-    background-color: #5508e6;
-  }
+
   h3{
     display:flex;
     margin-bottom: 40px;
@@ -60,6 +60,13 @@
     color: #d8d5da;
     font-size: 15.5px;
     font-family:monospace;
+  }
+
+  .notLoadedGif{
+    margin-top: 70px;
+    width: 90px;
+    height: 90px;
+    padding-bottom: 215px;
   }
 
   .divButton{
@@ -157,4 +164,9 @@
   
   .btn:hover {
     background-color: #005a8e;
+  }
+
+  .xd{
+    width: 100px;
+    background-color: #5508e6;
   }
