@@ -1,5 +1,3 @@
-const {API_KEY} = process.env
-const {apiFilter} = require("../tools/apiFilter")
 
 const axios = require("axios")
 const {User} = require("../db")
