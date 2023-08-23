@@ -32,8 +32,8 @@ const getVGByIdHandler = async (req, res)=>{
 
 const createVGHandler= async (req, res)=>{
     try {
-        const {name, image, description, platforms, released, rating, genres} = req.body
-        const newVG = await createVGController({name, image, description, platforms, released, rating}, genres)
+        const {name, image, description, platforms, released, rating, genres, color} = req.body
+        const newVG = await createVGController({name, image, description, platforms, released, rating, color}, genres)
         if(newVG){
             res.status(200).json(newVG)
         }else{ res.status(400).json({error:"The game already exists"})}
