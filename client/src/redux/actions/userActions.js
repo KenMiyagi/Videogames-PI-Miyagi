@@ -18,6 +18,8 @@ export function login(userData){
             const {email, password} = userData
             const response = await axios.get(`http://localhost:3001/user/login?email=${email}&password=${password}`)
             const {data} = response
+            const token = data.token
+            localStorage.setItem('authorization', token);
             dispatch({
                 type: LOGIN,
                 payload: data

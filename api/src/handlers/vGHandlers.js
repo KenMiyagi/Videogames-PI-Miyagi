@@ -63,10 +63,5 @@ const updateVGHandler = async (req, res)=>{
     }
 }
 
-module.exports={
-    createVGHandler,
-    getVGHandler,
-    getVGByIdHandler,
-    deleteVGHandler,
-    updateVGHandler
+module.exports={ createVGHandler, getVGHandler, getVGByIdHandler, deleteVGHandler, updateVGHandler
 }

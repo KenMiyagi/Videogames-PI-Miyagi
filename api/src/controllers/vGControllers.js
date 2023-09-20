@@ -173,11 +173,5 @@ const updateVGController= async (props)=>{
   return editedGame[0]
 }
 
-module.exports={
-    createVGController,
-    getVGByNameController,
-    getAllVGController,
-    getVGByIdController,
-    deleteVGController,
-    updateVGController,
+module.exports={ createVGController, getVGByNameController, getAllVGController, getVGByIdController, deleteVGController, updateVGController,
 }

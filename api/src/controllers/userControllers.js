@@ -1,13 +1,25 @@
-
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const axios = require("axios")
 const {User} = require("../db")
 
 const createUserController = async (email, userName, password, favorites)=>{
+    
+    const saltRounds = 10
+    const hashedPassword = await bcrypt.hash(password, saltRounds)
+    
     const [newUser,created] = await User.findOrCreate({
         where: {email},
-        defaults: {userName, password, favorites}
+        defaults: {userName, password:hashedPassword, favorites}
     })
-    if(created)return newUser
+
+    
+    
+    if(created){
+        const usedId = newUser.id
+        const token = jwt.sign({usedId},"Mi firma")
+        return {newUser, token}
+    }
     return false
 }
 
@@ -40,9 +52,5 @@ const patchUserController = async (props)=>{
     return editedUser
 }
 
-module.exports={
-    createUserController,
-    getUserController,
-    getUserFavsController,
-    patchUserController
+module.exports={ createUserController, getUserController, getUserFavsController, patchUserController
 }
