@@ -8,6 +8,7 @@ import style from "../style/Home.module.css"
 import Card from "../components/Card/Card"
 import Paginate from "../components/Paginate/Paginate"
 import Dashboard from '../components/Dashboard/Dashboard.jsx'
+import FilterRenderSubmit from '../components/FIlterRenderSubmit/FilterRenderSubmit'
 
 const Home = () => {
   const videoGames = useSelector((state) => state.videoGamesPaginate)
@@ -29,19 +30,12 @@ const Home = () => {
     dispatch(paginate(1))
   }
 
-  const deleteFilter =(event)=>{
-    dispatch(removeFilter(event.target.value))
-  }
-
-  const submitFilter= ()=>{
-    dispatch(allFilters())
-  }
-
   return (
     <div className={style.allHome}>
       <div className={style.allComponents}>
-        {/* <Dashboard/> */}
-          <div className={style.filtersRender}>
+        <Dashboard/>
+        <FilterRenderSubmit/>
+          {/* <div className={style.filtersRender}>
             <h2 className={style.filtersRenderTitle}>Selected Filters/Sorts: </h2>
             <div className={style.filtersDiv}>
             {arrayFilterArguments.map((obj) => {
@@ -51,7 +45,7 @@ const Home = () => {
                 })}
             </div>
                 <button className={style.searchButton} onClick={()=>submitFilter()}>Filter</button>
-          </div>
+          </div> */}
       </div>
       <Paginate/>
       <div className={style.homeCointainer}>
