@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
-
-import { removeFilter,allFilters, paginate } from '../redux/actions/filterPaginateActions'
 import { getVideoGames, notReloadAction } from '../redux/actions/videoGameActions'
 
 import style from "../style/Home.module.css"
@@ -9,6 +7,7 @@ import Card from "../components/Card/Card"
 import Paginate from "../components/Paginate/Paginate"
 import Dashboard from '../components/Dashboard/Dashboard.jsx'
 import FilterRenderSubmit from '../components/FIlterRenderSubmit/FilterRenderSubmit'
+import SearchBar from '../components/Dashboard/SearchBar/SearchBar'
 
 const Home = () => {
   const videoGames = useSelector((state) => state.videoGamesPaginate)
@@ -27,10 +26,11 @@ const Home = () => {
   return (
     <div className={style.allHome}>
       <div className={style.allComponents}>
+        <SearchBar/>
         <Dashboard/>
         <FilterRenderSubmit/>
+        <Paginate/>
       </div>
-      <Paginate/>
       <div className={style.homeCointainer}>
       {
         videoGames.length >0 ? (videoGames.map(({ id, name, image, description, released, rating, platforms, genres, createdInDb }) => {

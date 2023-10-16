@@ -1,11 +1,13 @@
 .searchBarContainer{
-    background-color: #c75495;
+    padding: 12px;
+    height: 70px;
+    justify-content: center;
     width: 100%;
 }
 
 .inputButtonDiv{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .searchInput{
@@ -13,7 +15,7 @@
     color: #ffffff;
     border: 1px solid #444466;
     border-radius: 4px;
-    width: 60%;
+    width: 300px;
 }
 
 
@@ -34,6 +36,8 @@
 
 .error{
     margin: 1px;
+    display: flex;
+    justify-content: center;
 }
 
 .labelTitle{

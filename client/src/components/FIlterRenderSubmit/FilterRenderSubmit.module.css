@@ -1,23 +1,39 @@
 .filtersRender{
     display: flex;
     height: 35px;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: center;
     margin-right: 32px;
+    background-color: rgb(231, 24, 197);
   }
 
-  .filtersRenderTitle{
-    color: #ffff;
-    font-size: 15px;
-    margin-right:12px;
-    font-size: small;
+  @media (max-width:750px){
+    .filtersRender{
+      display: grid;
+      grid-template-columns: repeat(
+    auto-fit,
+    minmax(100px, 100px)
+  );
+  gap:32px;
+  justify-content: center;
+      background-color:red;
+    }
   }
+
+.notSelected{
+    color:#8a8a91;
+    align-items:center;
+    justify-content: center;
+    display:flex;
+    width: 200px;
+}
 
   .filtersDiv{
     display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #0a0a1b;
     border-radius: 7px;
-    width: 429px;
-    margin-right: 10px;
   }
 
   .filterDivRender{
@@ -27,10 +43,9 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    border: 0.5px solid rgba(194, 12, 12, 0.705);
+    border: 0.7px solid rgba(224, 228, 21, 0.705);
     font-size: 12px;
     flex-wrap: wrap;
-    margin-left: 10px;
     background-color: #7474cc;
     max-width: 300px;
     min-width: 85px;
@@ -40,8 +55,10 @@
   }
 
   .filterCloseButton{
+    margin-left: 5px;
     background-color: red;
     height: 21px;
+    width: 21px;
     border-radius: 6px;
   }
 

@@ -80,6 +80,7 @@ li a.active, li a:hover{
  }
  .navIcons{
     display: flex;
+    line-height: 70px;
  }
  .icon{
     width: 30px;

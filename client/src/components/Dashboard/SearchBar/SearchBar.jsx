@@ -26,11 +26,11 @@ const SearchBar = () => {
 
   return (
     <div className={style.searchBarContainer}>
-      <p className={style.error} style={{visibility: !coincidences ? "visible" : "hidden", color:"red"}}>Not found</p>
         <div className={style.inputButtonDiv}>
-          <input autoComplete="off" className={style.searchInput} onKeyDown={(event)=>{auxFunction(event)}} onChange={(event)=>handleChange(event)} type="text" name="search"/>
+          <input placeholder='Search by name' autoComplete="off" className={style.searchInput} onKeyDown={(event)=>{auxFunction(event)}} onChange={(event)=>handleChange(event)} type="text" name="search"/>
           <img src="https://cdn.discordapp.com/attachments/781222020770693152/1139718792788836484/image.png" alt="search-img" className={style.searchButton} onClick={(event)=>searchSubmit(event)}/>
         </div>
+          <p className={style.error} style={{visibility: !coincidences ? "visible" : "hidden", color:"red"}}>Not found</p>
     </div>
   )
 }

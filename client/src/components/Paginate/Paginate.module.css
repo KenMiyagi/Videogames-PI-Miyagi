@@ -1,8 +1,14 @@
 .paginate{
     display:flex;
+    justify-content: center;
     margin: 10px;
     scale: 1.1
+}
 
+@media (max-width:450px){
+    .paginate{
+        scale: .9  
+    }
 }
 
 .numeration{

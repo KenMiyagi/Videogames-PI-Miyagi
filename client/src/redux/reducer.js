@@ -118,7 +118,8 @@ function rootReducer(state= initialState, action){
                     currentPage:1,
                     filteredPaginate:response,
                     pages:pages,
-                    videoGamesPaginate:videoGamesRender
+                    videoGamesPaginate:videoGamesRender,
+                    coincidences: true
                 }
             }else{
                 return {
