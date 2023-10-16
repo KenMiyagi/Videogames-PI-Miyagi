@@ -16,7 +16,12 @@
     border: 1px solid #444466;
     border-radius: 4px;
     width: 300px;
+    margin-right: 5px;
 }
+.searchInput::-webkit-input-placeholder {
+    text-align: center;
+   /*  line-height: 100px; *//* Centrado vertical */
+  }
 
 
 .searchButton{
