@@ -7,8 +7,7 @@ import { getVideoGames, notReloadAction } from '../redux/actions/videoGameAction
 import style from "../style/Home.module.css"
 import Card from "../components/Card/Card"
 import Paginate from "../components/Paginate/Paginate"
-import Filters from "../components/Filters/Filters"
-import SearchBar from "../components/SearchBar/SearchBar"
+import Dashboard from '../components/Dashboard/Dashboard.jsx'
 
 const Home = () => {
   const videoGames = useSelector((state) => state.videoGamesPaginate)
@@ -41,11 +40,7 @@ const Home = () => {
   return (
     <div className={style.allHome}>
       <div className={style.allComponents}>
-          <div className={style.components}>
-            <img onClick={()=>reloadVG()} className={style.icon} src="https://cdn.discordapp.com/attachments/781222020770693152/1138697413561942076/image.png" alt="Reload"/>
-            <SearchBar className={style.searchBar} />
-            <Filters/>
-          </div>
+        {/* <Dashboard/> */}
           <div className={style.filtersRender}>
             <h2 className={style.filtersRenderTitle}>Selected Filters/Sorts: </h2>
             <div className={style.filtersDiv}>

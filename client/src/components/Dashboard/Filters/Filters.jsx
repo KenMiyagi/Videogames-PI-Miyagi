@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addFilter } from '../../redux/actions/filterPaginateActions';
-import { getGenres } from '../../redux/actions/videoGameActions';
+import { addFilter } from '../../../redux/actions/filterPaginateActions';
+import { getGenres } from '../../../redux/actions/videoGameActions';
 import style from "./Filters.module.css"
 const Filters = () => {
     const dispatch = useDispatch()

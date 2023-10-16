@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from "./SearchBar.module.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { searchByName } from '../../redux/actions/filterPaginateActions'
+import { searchByName } from '../../../redux/actions/filterPaginateActions'
 
 const SearchBar = () => {
 

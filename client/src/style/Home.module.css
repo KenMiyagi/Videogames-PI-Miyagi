@@ -1,4 +1,6 @@
 
+
+  
 .notLoaded{
   height: 600px;
 }
@@ -84,7 +86,6 @@
   padding: 9px 9px 9px 9px;
   padding-left: 12px;
   padding-right: 12px;
-  /* margin-right: 5px; */
   cursor: pointer;
   border: 1px solid #2abdf7;
   border-radius: 4px;
@@ -120,7 +121,7 @@
   height: 130px;
   margin-left:10px;
   margin-right:10px;
-  background-color: #111133; /* (44, 187, 139, 0.336) */
+  background-color: #111133;
   padding: 1%;
   border-radius: 8px;
   border: 0.5px solid rgba(233, 202, 66, 0.705);
@@ -212,3 +213,4 @@
     margin: 10px;
     width: calc(20% - 30px); 
   }
+
