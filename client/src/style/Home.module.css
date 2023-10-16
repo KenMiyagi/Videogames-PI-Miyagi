@@ -5,19 +5,6 @@
   height: 600px;
 }
 
-.allHome{
-  display: flex;
-  padding-bottom: 105px;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  background-image: url(https://wallpapercave.com/wp/wp9108900.jpg);
-
-  background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .notLoadedGif{
   margin-top: 70px;
   width: 90px;
@@ -48,28 +35,28 @@
 }
 
 .homeCointainer{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(245px, 245px)
+  );
+  gap:32px;
   justify-content: center;
-  gap: 10px;
-
 }
 
-.cardHomeContainer{
+/* .cardHomeContainer{
   display: flex;
-}
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+} */
 
-.allComponents{
-  width: 97.7%;
-  height: 130px;
-  margin-left:10px;
-  margin-right:10px;
+/* .allComponents{
   background-color: #111133;
-  padding: 1%;
   border-radius: 8px;
   border: 0.5px solid rgba(233, 202, 66, 0.705);
-  margin-top: 0%;
-}
+} */
 
 .components{
   display: flex;

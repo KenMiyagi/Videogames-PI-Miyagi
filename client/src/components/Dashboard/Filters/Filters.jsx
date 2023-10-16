@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addFilter } from '../../../redux/actions/filterPaginateActions';
 import { getGenres } from '../../../redux/actions/videoGameActions';
 import style from "./Filters.module.css"
+import SearchBar from '../SearchBar/SearchBar';
+import Reload from '../Reload/Reload';
 const Filters = () => {
     const dispatch = useDispatch()
     const arrayFilterArguments = useSelector((state)=>state.arrayFilterArguments)
@@ -72,6 +74,14 @@ const Filters = () => {
 
   return (
     <div className={style.filtersContainer}>
+    <div className={style.filter}>
+      <label className={style.labelTitle}>Reload</label>
+      <Reload/>
+    </div>
+    <div className={style.filter}>
+      <label className={style.labelTitle}>Search by name</label>
+      <SearchBar/>
+    </div>
       <div className={style.filter}>
         <label className={style.labelTitle}>Filter by genres</label>
         <select value="Genres" className={style.select} onChange={(event) => handleGenres(event)}>

@@ -1,8 +1,8 @@
 .cardContainer {
-  display: inline-block;
-  flex-wrap: wrap;
-  width: 245px;
-  height: 320px;
+  /* display: inline-block;
+  flex-wrap: wrap; */
+  width: 100%;
+  height: auto;
 
   margin-left: 5px;
   margin-right: 5px;

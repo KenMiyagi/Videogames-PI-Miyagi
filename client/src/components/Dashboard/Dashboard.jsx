@@ -8,8 +8,6 @@ const Dashboard = () => {
   return (
     <div>
       <div className={style.components}>
-            <Reload/>
-            <SearchBar/>
             <Filters/>
           </div>
     </div>

@@ -12,7 +12,6 @@ import FilterRenderSubmit from '../components/FIlterRenderSubmit/FilterRenderSub
 
 const Home = () => {
   const videoGames = useSelector((state) => state.videoGamesPaginate)
-  const arrayFilterArguments = useSelector((state)=>state.arrayFilterArguments)
   const dispatch = useDispatch()
   const filterNotFound = useSelector((state)=>state.filterNotFound)
   const notReload = useSelector((state)=> state.notReload) 
@@ -25,27 +24,11 @@ const Home = () => {
     }
   },[])
 
-  const reloadVG = ()=>{
-    dispatch(getVideoGames())
-    dispatch(paginate(1))
-  }
-
   return (
     <div className={style.allHome}>
       <div className={style.allComponents}>
         <Dashboard/>
         <FilterRenderSubmit/>
-          {/* <div className={style.filtersRender}>
-            <h2 className={style.filtersRenderTitle}>Selected Filters/Sorts: </h2>
-            <div className={style.filtersDiv}>
-            {arrayFilterArguments.map((obj) => {
-                return <div className={style.filterDivRender}  key={obj.filterArgument}> <p className={style.filterName}>{obj.filterArgument}</p>   
-                <button className={style.filterCloseButton}  value={obj.filterArgument} onClick={(event) => deleteFilter(event)}> X </button>
-                </div> 
-                })}
-            </div>
-                <button className={style.searchButton} onClick={()=>submitFilter()}>Filter</button>
-          </div> */}
       </div>
       <Paginate/>
       <div className={style.homeCointainer}>

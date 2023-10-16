@@ -26,7 +26,6 @@ const SearchBar = () => {
 
   return (
     <div className={style.searchBarContainer}>
-      <label className={style.labelTitle} >Search by name</label>
       <p className={style.error} style={{visibility: !coincidences ? "visible" : "hidden", color:"red"}}>Not found</p>
         <div className={style.inputButtonDiv}>
           <input autoComplete="off" className={style.searchInput} onKeyDown={(event)=>{auxFunction(event)}} onChange={(event)=>handleChange(event)} type="text" name="search"/>
