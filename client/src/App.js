@@ -13,6 +13,7 @@ import Login from "./views/Login"
 import SignUp from "./views/SignUp"
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import NavBarR from './components/NavBar/NavBarR';
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
 
   return (
     <div className="App">
-      {!(pathname==="/" || pathname==="/login" || pathname==="/signup") && <NavBar path="/:"/>}
+      {/* <NavBar/> */}
+      {!(pathname==="/" || pathname==="/login" || pathname==="/signup") && <NavBarR path="/:"/>}
       <Routes>
         <Route path="/" element={<Landing/>}/>
         <Route path="/login" element={<Login/>}/>

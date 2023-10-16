@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin:0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.containerNav{
+    background-color: antiquewhite;
+    height: 80px;
+    width: 100%;
+}
+
+.link{
+    position: absolute;
+    padding: 20px 50px;
+}
+
+.logo{
+    height: 40px;
+}
+
+.containerNav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+.listItem{
+    display: inline-block;
+    justify-content: center;
+    line-height: 70px;
+    margin: 0 5px;
+}
+
+.containerNav ul li a{
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover{
+    background: #000090;
+    transition: .5s;
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: #d61e1e;
+    float: right;
+    line-height: 70px;
+    margin-right: 40px;
+    cursor: pointer;
+    width: 40px;
+    display: none;
+}
+.menu{
+    position: fixed;
+    width: 100%;
+    height: 100vh; 
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+    z-index: 5;
+ }
+ .open{
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    height: 100vh; 
+    background: #0e71d4;
+    top: 80px;
+    left:0;
+    text-align: center;
+    transition: all 0.5s;
+ }
+
+@media (max-width: 952px){
+    .link{
+        padding-left: 20px;
+    }
+    .containerNav ul li a{
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    /* ul{
+       position: fixed;
+       width: 100%;
+       height: 100vh; 
+       background: #2c3e50;
+       top: 80px;
+       left: -100%;
+       text-align: center;
+       transition: all 0.5s;
+    } */
+    .containerNav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    .containerNav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li a.active{
+        background: none;
+        color: red; 
+    }
+    #check:checked ~.containerNav ul{
+        left: 0;
+    }
+    
+}
