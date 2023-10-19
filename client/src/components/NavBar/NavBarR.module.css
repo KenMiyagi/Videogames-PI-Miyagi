@@ -17,11 +17,12 @@
     margin-left: 2px;
     height: 85px;
 }
-
+/* Logo */
 .logo{
     padding-top: 3px;
     height: 40px;
 }
+/* Title */
 .title {
     font-size: calc(2.86rem - 2.7vh);
     color: #e46eaa; /* Neon pink/purple color */
@@ -35,7 +36,7 @@
     -1px  1px 0 black,   /* Sombra inferior izquierda */
      1px  1px 0 black;   /* Sombra inferior derecha */
   }
-
+/* User */
 .user{
 display: flex;
 align-items: center;
