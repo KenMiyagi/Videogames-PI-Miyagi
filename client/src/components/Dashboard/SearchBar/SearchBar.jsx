@@ -14,14 +14,14 @@ const SearchBar = () => {
     setSearch(event.target.value)
   }
 
+  const searchSubmit = () =>{
+    dispatch(searchByName(search))
+  }
+
   const auxFunction = (event) =>{
     if(event.key==="Enter"){
       searchSubmit()
     }
-  }
-
-  const searchSubmit = () =>{
-    dispatch(searchByName(search))
   }
 
   return (
